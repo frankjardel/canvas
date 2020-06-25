@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="pt-br">
+<head>
+	<title>Fabric JS</title>
+	<style type="text/css">
+		html,
+		body,
+		canvas {
+			width: 100%;
+			height: 100%;
+		}
+		canvas {
+			border:1px solid gray;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<button id="select">Select</button>
+		</li>
+		<li>
+			<button id="path">Path</button>
+		</li>
+		<li>
+			<button id="square">Square</button>
+		</li>
+		<li>
+			<button id="circle">Circle</button>
+		</li>
+		<li>
+			<button id="triangle">Triangle</button>
+		</li>
+		<li>
+			<button id="ellipse">Ellipse</button>
+		</li>
+	</ul>
+<canvas id="canvas" width="720" height="500"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js"></script>
+<script type="text/javascript">
+	let canvas = new fabric.Canvas('canvas');
+
+	document.getElementById('select').addEventListener('click', () => {
+		canvas.selection = false
+		rect.set('selectable', false)
+	})
+
+	document.getElementById('square').addEventListener('click', () => {
+		let rect = new fabric.Rect({
+			top : 50,
+			left : 10,
+			width : 50,
+			height : 50,
+			stroke: 'black',
+			fill : 'gray',
+		});
+		canvas.add(rect);
+	})
+
+	document.getElementById('circle').addEventListener('click', () => {
+		var circle = new fabric.Circle({
+	      radius: 25,
+	      stroke: 'black',
+	      fill: 'gray',
+	      left: 10,
+	      top: 50
+		});
+		canvas.add(circle)
+	})
+
+	document.getElementById('triangle').addEventListener('click', () => {
+		var triangle = new fabric.Triangle({
+	      stroke: 'black',
+	      fill: 'gray',
+	      left: 10,
+	      top: 50,
+			width : 50,
+			height : 50,
+		});
+		canvas.add(triangle)
+	})
+
+	document.getElementById('ellipse').addEventListener('click', () => {
+		alert("Ainda não configurado")
+	})
+
+	document.getElementById('path').addEventListener('click', () => {
+		var path = new fabric.Path('m 43.278274,75.694939 c 50.270832,0 50.270832,0 50.270832,0', {
+			stroke: 'black'
+		});
+		path.set({ left: 120, top: 120 });
+		canvas.add(path);
+	})
+</script>
+</body>
+</html>
